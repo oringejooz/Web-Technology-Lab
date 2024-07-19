@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+        body {
+            font-family: Audiowide;
+            background-color: #ebb1b1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #7e1a46;
+        }
+        .form {
+            background-color: rgba(241, 136, 136,0.5);
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 280px;
+        }
+        .form h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .group {
+            margin-bottom: 10px;
+        }
+        .group label {
+            display: block;
+            margin-bottom: 3px;
+        }
+        .group input,select {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .btn {
+            margin-top: 10%;
+            width: 100%;
+            padding: 8px;
+            background-color: #d44583;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #741644;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <h2>Course Registration</h2>
+        <form>
+            <div class="group">
+                <label for="name">Student Name :</label>
+                <input type="text" id="name" name="name" placeholder="Enter Name" required>
+            </div>
+            <div class="group">
+                <label for="age">Age :</label>
+                <input type="number" id="age" name="age" required placeholder="Enter Age">
+            </div>
+            <div class="group">
+                <label for="dob">Date of Birth :</label>
+                <input type="date" id="dob" name="dob" required min="2001-01-01" max="2005-12-30">
+            </div>
+            <div class="group">
+                <label for="course">Select Course :</label>
+                <select id="course" name="course" required>
+                    <option value="">--Select Course--</option>
+                    <option value="course1">DevOps</option>
+                    <option value="course2">Blockchain</option>
+                    <option value="course3">Cloud Computing</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
