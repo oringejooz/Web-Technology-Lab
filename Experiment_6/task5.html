@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alert, Prompt, and Confirm</title>
+<style>
+body { background-color: #f0f8ff; color: #413009; font-size: 18px; padding: 10px; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+#container { border: 2px solid black; padding: 20px; margin: 20px auto; max-width: 600px; background-color: #ffffff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+h2 { text-align: center; color: #002147; }
+button { padding: 10px; border: none; border-radius: 4px; background-color: #4CAF50; color: white; font-size: 16px; cursor: pointer; margin: 5px; }
+button:hover { background-color: #45a049; }
+</style>
+</head>
+<body>
+<div id="container">
+<h2>Alert, Prompt, and Confirm</h2>
+<button onclick="showAlert()">Show Alert</button>
+<button onclick="showPrompt()">Show Prompt</button>
+<button onclick="showConfirm()">Show Confirm</button>
+<p id="result"></p>
+</div>
+
+<script>
+function showAlert() {
+    alert('This is an alert box!');
+}
+
+function showPrompt() {
+    const userInput = prompt('Please enter your name:', 'Guest');
+    if (userInput !== null) {
+        document.getElementById('result').innerText = 'Hello, ' + userInput + '!';
+    }
+}
+
+function showConfirm() {
+    const result = confirm('Do you want to proceed?');
+    if (result) {
+        document.getElementById('result').innerText = 'You pressed OK!';
+    } else {
+        document.getElementById('result').innerText = 'You pressed Cancel!';
+    }
+}
+</script>
+</body>
+</html>
