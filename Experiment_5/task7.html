@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Numbers</title>
+<style>
+body { background-color: #f0f8ff; color: #413009; font-size: 18px; padding: 10px; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+#container { border: 2px solid black; padding: 20px; margin: 20px auto; max-width: 600px; background-color: #ffffff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+h2 { text-align: center; color: #002147; }
+input, button { padding: 10px; margin-top: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; }
+button { background-color: #4CAF50; color: white; cursor: pointer; }
+button:hover { background-color: #45a049; }
+#result { margin-top: 20px; text-align: center; font-size: 20px; color: #d32f2f; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div id="container">
+<h2>Prime Numbers in Interval</h2>
+<input type="number" id="start" placeholder="Start" min="1">
+<input type="number" id="end" placeholder="End" min="1">
+<button onclick="findPrimes()">Find Primes</button>
+<p id="result"></p>
+</div>
+
+<script>
+function findPrimes() {
+    const start = parseInt(document.getElementById('start').value);
+    const end = parseInt(document.getElementById('end').value);
+    let primes = '';
+
+    for (let num = start; num <= end; num++) {
+        if (num > 1 && isPrime(num)) {
+            primes += num + ' ';
+        }
+    }
+
+    document.getElementById('result').innerText = 'Prime Numbers: ' + primes;
+}
+
+function isPrime(num) {
+    if (num <= 1) return false;
+    if (num === 2) return true;
+    if (num % 2 === 0) return false;
+    for (let i = 3; i <= Math.sqrt(num); i += 2) {
+        if (num % i === 0) return false;
+    }
+    return true;
+}
+</script>
+</body>
+</html>
