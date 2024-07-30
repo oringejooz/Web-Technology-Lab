@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tableApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display Table</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="TableController">
+    <h2>Table Display</h2>
+    <table border="1" style="border-collapse: collapse;">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr ng-repeat="person in people">
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+        </tr>
+    </table>
+
+    <script>
+    angular.module('tableApp', [])
+    .controller('TableController', ['$scope', function($scope) {
+        $scope.people = [
+            {name: 'Alice', age: 25},
+            {name: 'Bob', age: 30},
+            {name: 'Charlie', age: 35}
+        ];
+    }]);
+    </script>
+</body>
+</html>

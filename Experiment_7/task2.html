@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="costCalculatorApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cost Calculator</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<style>
+body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #f0f8ff; }
+input, button { padding: 10px; margin: 10px; font-size: 16px; }
+</style>
+</head>
+<body ng-controller="CalculatorController">
+    <h2>Cost Calculator</h2>
+    <label for="itemPrice">Item Price:</label>
+    <input type="number" ng-model="itemPrice" placeholder="Enter price">
+    <label for="quantity">Quantity:</label>
+    <input type="number" ng-model="quantity" placeholder="Enter quantity">
+    <button ng-click="calculateCost()">Calculate Cost</button>
+    <p>Total Cost: {{ totalCost | currency : '₹'}}</p>
+
+    <script>
+    angular.module('costCalculatorApp', [])
+    .controller('CalculatorController', ['$scope', function($scope) {
+        $scope.itemPrice = 0;
+        $scope.quantity = 0;
+        $scope.totalCost = 0;
+        
+        $scope.calculateCost = function() {
+            $scope.totalCost = $scope.itemPrice * $scope.quantity;
+        };
+    }]);
+    </script>
+</body>
+</html>

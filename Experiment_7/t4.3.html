@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tableApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table Even and Odd Rows</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<style>
+.even { background-color: #f0f8ff; }
+.odd { background-color: #e0e0e0; }
+</style>
+</head>
+<body ng-controller="TableController">
+    <h2>Table Display with Even and Odd Rows</h2>
+    <table border="1" style="border-collapse: collapse;">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr ng-repeat="person in people" ng-class="{'even': $index % 2 === 0, 'odd': $index % 2 !== 0}">
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+        </tr>
+    </table>
+
+    <script>
+    angular.module('tableApp', [])
+    .controller('TableController', ['$scope', function($scope) {
+        $scope.people = [
+            {name: 'Alice', age: 25},
+            {name: 'Bob', age: 30},
+            {name: 'Charlie', age: 35},
+            {name: 'David', age: 40}
+        ];
+    }]);
+    </script>
+</body>
+</html>

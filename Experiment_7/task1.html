@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="colorApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Background Color</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<style>
+body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f8ff; }
+input { padding: 10px; font-size: 16px; }
+</style>
+</head>
+<body ng-controller="ColorController">
+    <input type="text" ng-model="color" placeholder="Enter color" ng-style="{'background-color': color}">
+    <script>
+    angular.module('colorApp', [])
+    .controller('ColorController', ['$scope', function($scope) {
+        $scope.color = '';
+    }]);
+    </script>
+</body>
+</html>

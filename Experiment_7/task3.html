@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="searchFilterApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Filter</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<style>
+body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #f0f8ff; }
+input { padding: 10px; font-size: 16px; }
+ul { list-style-type: none; padding: 0; }
+li { margin: 5px 0; }
+</style>
+</head>
+<body ng-controller="FilterController">
+    <h2>Search Filter</h2>
+    <input type="text" ng-model="searchQuery" placeholder="Search...">
+    <ul>
+        <li ng-repeat="item in items | filter:searchQuery">{{ item }}</li>
+    </ul>
+
+    <script>
+    angular.module('searchFilterApp', [])
+    .controller('FilterController', ['$scope', function($scope) {
+        $scope.searchQuery = '';
+        $scope.items = ['Apple', 'Banana', 'Cherry', 'Date', 'Grape', 'Kiwi'];
+    }]);
+    </script>
+</body>
+</html>

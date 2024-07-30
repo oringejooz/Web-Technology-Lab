@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tableApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table Order By</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<style>
+body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #f0f8ff; }
+h2 { color: #002147; }
+select, table { margin-bottom: 20px; }
+table { width: 80%; border-collapse: collapse; }
+th, td { padding: 10px; border: 1px solid #ddd; }
+th { background-color: #f4f4f4; }
+</style>
+</head>
+<body ng-controller="TableController">
+    <h2>Table Display with Order By</h2>
+    <select ng-model="orderByField">
+        <option value="">Select Field</option>
+        <option value="name">Name</option>
+        <option value="age">Age</option>
+    </select>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr ng-repeat="person in people | orderBy:orderByField">
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+        </tr>
+    </table>
+
+    <script>
+    angular.module('tableApp', [])
+    .controller('TableController', ['$scope', function($scope) {
+        $scope.people = [
+            {name: 'Alice', age: 25},
+            {name: 'Bob', age: 30},
+            {name: 'Charlie', age: 35},
+            {name: 'David', age: 22},
+            {name: 'Eva', age: 40},
+            {name: 'Frank', age: 28},
+            {name: 'Grace', age: 33},
+            {name: 'Hannah', age: 29}
+        ];
+        $scope.orderByField = '';
+    }]);
+    </script>
+</body>
+</html>
